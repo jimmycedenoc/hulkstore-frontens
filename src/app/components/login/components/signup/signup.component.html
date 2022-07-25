@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Registro de usuario</h3>
+    </div>
+    <div class="card-body card-singup">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Nombre de usaurio</label>
+                <input type="text" formControlName="username" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                    <div *ngIf="f['username'].errors['required']">Nombre de usuario es requerido</div>
+                    <div *ngIf="f['username'].errors['minlength']">
+                        Nombre de usuario debe tener al menos 6 caracteres
+                    </div>
+                    <div *ngIf="f['username'].errors['maxlength']">
+                        Nombre de usuario no puede exceder 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">Contraseña es requerido</div>
+                    <div *ngIf="f['password'].errors['minlength']">
+                        Contraseña debe tener al menos 6 caracteres
+                    </div>
+                    <div *ngIf="f['password'].errors['maxlength']">
+                        Contraseña no puede exceder 40 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Confirmar Contraseña</label>
+                <input type="password" formControlName="confirmPassword" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" />
+                <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                    <div *ngIf="f['confirmPassword'].errors['required']">
+                        Confirmar Contraseña es requerido
+                    </div>
+                    <div *ngIf="f['confirmPassword'].errors['matching']">
+                        Confirmar Contraseña no es identico
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                    Limpiar
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+            Ya tienes una cuenta?<a [routerLink]="['/login/signin']">Iniciar sesi&oacute;n</a>
+        </div>
+    </div>
+</div>

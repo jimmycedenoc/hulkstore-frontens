@@ -1,0 +1,39 @@
+<app-layout titleLayout="Producto" subtitle="Aumentar inventario de productos." [actions]="actions">
+
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Nombre de producto: </label>
+            <span class="form-control">{{productService.product.name}}</span>
+            <!-- <input type="text" formControlName="name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                <div *ngIf="f['name'].errors['required']">Nombre de producto es requerido</div>
+                <div *ngIf="f['name'].errors['maxlength']">
+                    Nombre de usuario no puede exceder 255 caracteres
+                </div>
+            </div> -->
+        </div>
+
+        <div class="form-group">
+            <label>Valor unitario</label>
+            <input type="number" formControlName="unitValue" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['unitValue'].errors }" />
+            <div *ngIf="submitted && f['unitValue'].errors" class="invalid-feedback">
+                <div *ngIf="f['unitValue'].errors['required']">Valor unitario es requerido</div>
+                <div *ngIf="f['unitValue'].errors['min']">Valor unitario es 0</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input type="number" formControlName="stock" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['stock'].errors }" />
+            <div *ngIf="submitted && f['stock'].errors" class="invalid-feedback">
+                <div *ngIf="f['stock'].errors['required']">Valor unitario es requerido</div>
+                <div *ngIf="f['stock'].errors['min']">Valor minimo es 1</div>
+            </div>
+        </div>
+
+
+    </form>
+</app-layout>

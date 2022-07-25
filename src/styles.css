@@ -1,1 +1,413 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~ngx-toastr/toastr.css";
+
+.card {
+    border-radius: 15px !important;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+}
+
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+}
+
+
+
+
+.wrapper {
+    height: calc(100vh - 90px);
+}
+
+.wrapper main {
+    height: calc(100vh - 90px);
+    display: flex;
+}
+
+.wrapper main .pages {
+    overflow: auto;
+}
+
+.wrapper main .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0.7;
+    display: none;
+}
+
+.wrapper main .overlay.show {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .wrapper main .overlay.show {
+        display: none;
+    }
+}
+
+.wrapper.toggeled-sidebar main .overlay {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .wrapper.toggeled-sidebar main .overlay {
+        display: none;
+    }
+}
+
+.wrapper.default-theme {
+    background: #fff;
+}
+
+.wrapper.default-theme nav.navbar {
+    background: #343a40;
+    border-color: rgba(110, 120, 153, .3);
+}
+
+.wrapper.default-theme nav.navbar .navbar-brand {
+    color: #b9bece;
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search {
+    color: #6e7899;
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search::placeholder {
+    color: rgba(110, 120, 153, .6);
+}
+
+.wrapper.default-theme nav.navbar .right-nav {
+    background: #343a40;
+}
+
+.wrapper.default-theme nav.navbar .nav-link {
+    color: #6e7899;
+}
+
+.wrapper.default-theme nav.navbar .nav-link i {
+    border-color: #6e7899;
+}
+
+.wrapper.default-theme nav.navbar .nav-link:hover {
+    color: #9ba2b9;
+}
+
+.wrapper.default-theme nav.navbar .nav-alert {
+    border-color: #2f3546;
+}
+
+.wrapper.default-theme nav.navbar .nav-alert.notifications {
+    background-color: #ff61c5;
+    box-shadow: 0px 0px 4px #ff61c5;
+}
+
+.wrapper.default-theme nav.navbar .nav-alert.messages {
+    background-color: #61b8ff;
+    box-shadow: 0px 0px 4px #61b8ff;
+}
+
+.wrapper.default-theme main .overlay {
+    background: #343a40;
+}
+
+.wrapper.default-theme main .sidebar {
+    background: whitesmoke;
+}
+
+.wrapper main {
+    position: relative;
+}
+
+.wrapper main .sidebar {
+    height: 100%;
+    width: 260px;
+    position: absolute;
+    transition: left 0.3s ease;
+    left: -260px;
+    top: 0;
+    z-index: 111;
+    overflow: auto;
+}
+
+div {
+    border-bottom: 1px solid;
+}
+
+div:last-child {
+    border-bottom: none;
+}
+
+.wrapper main .sidebar .sidebar-search {
+    display: none;
+}
+
+div {
+    padding: 0 1.5rem;
+}
+
+.wrapper main .sidebar .sidebar-menu .menu-header {
+    padding: 0 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.wrapper main .sidebar .sidebar-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper main .sidebar .sidebar-menu ul li {
+    display: block;
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a i {
+    font-size: 1rem;
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a img {
+    font-size: 1rem;
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a span {
+    color: inherit;
+    margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+    .wrapper main .sidebar {
+        position: static;
+        height: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .wrapper.pinned-sidebar .navbar-header {
+        width: 70px !important;
+    }
+
+    .wrapper.pinned-sidebar .navbar-header span {
+        display: none !important;
+    }
+
+    .wrapper.pinned-sidebar .sidebar {
+        width: 70px;
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-profile .user-picture {
+        width: 40px;
+        height: 40px;
+    }
+
+    .wrapper.pinned-sidebar .sidebar .profile-details,
+    .wrapper.pinned-sidebar .sidebar .menu-header,
+    .wrapper.pinned-sidebar .sidebar .view-source {
+        display: none;
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-menu ul a {
+        padding: 0.5rem;
+        justify-content: center;
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-menu ul a span {
+        display: none;
+    }
+}
+
+.wrapper.toggeled-sidebar .sidebar {
+    left: 0;
+}
+
+.wrapper nav.navbar {
+    height: 60px;
+    padding: 0;
+    border-bottom: 1px solid;
+}
+
+.wrapper nav.navbar .navbar-header .navbar-brand {
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.wrapper nav.navbar .navbar-header .navbar-brand span {
+    display: none;
+}
+
+.wrapper nav.navbar p .nav-toggler-right {
+    position: relative;
+}
+
+.wrapper nav.navbar p .nav-toggler-right button {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.wrapper nav.navbar p .nav-toggler-right .nav-alert {
+    right: 0px;
+    border-width: 1px;
+    width: 9px;
+    height: 9px;
+}
+
+.wrapper nav.navbar .nav-alert {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    border: 3px solid #1c1e21;
+    transform: translateX(13px);
+}
+
+@media (min-width: 768px) {
+    .wrapper nav.navbar .nav-alert {
+        right: 20px;
+        transform: translateX(0);
+    }
+}
+
+.wrapper nav.navbar .nav-alert.user-profile {
+    transform: translate(-5px, 5px);
+}
+
+.wrapper nav.navbar .navbar-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper nav.navbar .user-profile span {
+    display: none;
+}
+
+.wrapper nav.navbar .right-nav {
+    border-top: 1px solid;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: calc(100vh - 60px + 1px) !important;
+}
+
+.wrapper nav.navbar .right-nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.wrapper nav.navbar .right-nav ul li {
+    flex: 1 1 0;
+    max-width: 110px;
+    padding: 1rem;
+}
+
+.wrapper nav.navbar .right-nav ul li .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper nav.navbar .right-nav ul li .nav-link .link-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.wrapper nav.navbar .nav-link {
+    padding: 0;
+}
+
+.wrapper nav.navbar .nav-link i {
+    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 0;
+}
+
+.wrapper nav.navbar .left-nav {
+    display: none;
+}
+
+.wrapper nav.navbar .left-nav input.navbar-search {
+    max-width: 500px;
+    border-radius: 0;
+    border: none;
+    height: 40px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .wrapper nav.navbar .sidebar-toggler {
+        display: none;
+    }
+
+    .wrapper nav.navbar .navbar-header {
+        width: 260px;
+        margin-left: 0 !important;
+    }
+
+    .wrapper nav.navbar .navbar-header .navbar-brand span {
+        display: inline-block;
+    }
+
+    .wrapper nav.navbar .left-nav {
+        display: flex;
+    }
+
+    .wrapper nav.navbar .nav-link {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+
+    .wrapper nav.navbar .nav-alert {
+        right: 12px;
+    }
+
+    .wrapper nav.navbar .right-nav {
+        height: 100% !important;
+        border-top: none;
+        background: none !important;
+    }
+
+    .wrapper nav.navbar .right-nav ul {
+        margin-left: auto;
+        flex-wrap: nowrap;
+    }
+
+    .wrapper nav.navbar .right-nav ul li {
+        padding: 0;
+    }
+
+    .wrapper nav.navbar .right-nav ul li .nav-link .link-text {
+        display: none;
+    }
+}

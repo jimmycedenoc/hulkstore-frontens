@@ -1,0 +1,34 @@
+<div class="layout wrapper default-theme" [ngClass]="getClasses()">
+    <app-navbar></app-navbar>
+    <main>
+        <app-sidebar></app-sidebar>
+        <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 background-layout-content">
+
+            <div class="page-header">
+                <div *ngIf="titleLayout" class="row">
+                    <h1 class="col-sm">
+                        {{titleLayout}}
+                        <small *ngIf="subtitle">
+                            <i class="fa fa-angle-double-right"></i>
+                            {{subtitle}}
+                        </small>
+                    </h1>
+                    <div class="col-sm text-right" style="text-align: right;">
+                        <span *ngFor="let action of actions">
+                            <button type="button" class="btn btn-link" title="{{action.name}}"
+                                (click)="action.function()">
+                                <i class="{{action.icon}}"></i> {{action.name}}
+                            </button>
+                        </span>
+                        <ng-container *ngTemplateOutlet="searchs"></ng-container>
+                    </div>
+                </div>
+
+            </div>
+            <ng-content></ng-content>
+        </div>
+        <div class="overlay" (click)="toggleSidebar()"></div>
+    </main>
+
+    <app-footer></app-footer>
+</div>

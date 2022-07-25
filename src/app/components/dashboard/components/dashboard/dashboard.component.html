@@ -1,0 +1,39 @@
+<app-layout titleLayout="Inventario" subtitle="Kardex de los productos.">
+    <div id="table" class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" title="Fecha">Fecha</th>
+                    <th scope="col" title="Cantidad">Cantidad</th>
+                    <th scope="col" title="Valor">Valor unitario</th>
+                    <th scope="col" title="Descripci&oacute;n">Descripci&oacute;n</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventory of allInventories">
+                    <td>
+                        <span [title]="inventory.date">
+                            {{inventory.date | date:'YYYY-MM-dd'}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="inventory.quantity">
+                            {{inventory.quantity}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="inventory.unitValue">
+                            {{inventory.unitValue}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="inventory.detail">
+                            {{inventory.detail}}
+                        </span>
+                    </td>
+
+                </tr>
+        </table>
+    </div>
+</app-layout>

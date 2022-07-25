@@ -1,0 +1,45 @@
+<app-layout titleLayout="Producto" subtitle="Listado de productos." [actions]="actions">
+
+    <div id="table" class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" title="Nombre">Nombre</th>
+                    <th scope="col" title="Cantidad">Cantidad</th>
+                    <th scope="col" title="Valor">Valor</th>
+                    <th scope="col" title="Categor&iacute;a">Categor&iacute;a</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>
+                        <span [title]="product.name">
+                            {{product.name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="product.stock">
+                            {{product.stock}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="product.unitValue">
+                            {{product.unitValue}}
+                        </span>
+                    </td>
+                    <td>
+                        <span [title]="product.categoryEntity.name">
+                            {{product.categoryEntity.name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="mb-3 mr-2" style="font-size: 1.2em; color: #6c757d;" title="Editar"
+                            (click)="buyProduct(product)">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                    </td>
+                </tr>
+        </table>
+    </div>
+</app-layout>
